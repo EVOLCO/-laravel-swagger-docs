@@ -1,0 +1,39 @@
+{
+    "name": "evolco/laravel-swagger-docs",
+    "description": "Swagger docs generator for Laravel api",
+    "type": "library",
+    "keywords": ["laravel", "swagger", "docs", "generator"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Evolco Ltd",
+            "email": "info@evolco.lt"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "doctrine/dbal": "*",
+        "phpdocumentor/reflection-docblock": "^5.2"
+    },
+    "require-dev": {
+        "laravel/passport": "^12.0"
+    },
+    "autoload": {
+        "files": [
+            "src/helpers.php"
+        ],
+        "psr-4": {
+            "Evolco\\SwaggerDocs\\": "src/"
+        }
+    },
+    "suggest": {
+        "ext-yaml": "Required to generate YAML"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Evolco\\SwaggerDocs\\SwaggerServiceProvider"
+            ]
+        }
+    }
+}
