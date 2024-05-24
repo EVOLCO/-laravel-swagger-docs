@@ -52,12 +52,6 @@ class SwaggerServiceProvider extends ServiceProvider {
 
         $this->loadValidationRules();
 
-        try {
-            Schema::registerEnumMapping('enum', 'string');
-        } catch (\Exception $e) {
-            Log::error('[Evolco\SwaggerDocs] Could not register enum type as string because of connexion error.');
-        }
-
         if (file_exists($file = __DIR__ . '/helpers.php')) {
             require $file;
         }
