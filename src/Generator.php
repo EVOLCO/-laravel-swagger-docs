@@ -548,7 +548,12 @@ class Generator {
             }
             $className = $class->getName();
             if (is_subclass_of($className, FormRequest::class)) {
-                return (new $className)->rules();
+                try {
+                    return (new $className)->rules();
+                } catch (\Throwable $e) {
+                    \Log::warning("Could not analyze rules for {$className}: " . $e->getMessage());
+                    return [];
+                }
             }
         }
         return [];
